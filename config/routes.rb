@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     sessions: 'public/sessions',
     registrations: 'public/registrations'
   }
+  
   namespace :admin do
     get 'orders/show'
   end
