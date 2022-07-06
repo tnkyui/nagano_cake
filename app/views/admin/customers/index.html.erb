@@ -15,13 +15,13 @@
         <%= customer.id %>
       </td>
       <td>
-        <%= customer.first_name %><%= customer.last_name %>
+        <%= customer.last_name %><%= customer.first_name %>
       </td>
       <td>
         <%= customer.email %>
       </td>
       <td>
-        <%= customer.id_delete ? "退会" : "有効" %>
+        <%= customer.id_active ? "退会" : "有効" %>
       </td>
     </tr>
     <% end %>
