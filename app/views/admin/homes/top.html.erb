@@ -12,8 +12,11 @@
   <tbody>
     <tr>
       <td><%= order.created_at %></td>
-      <td><%= order.@customer.full %></td>
+      <td><%= order.customer.full_name %></td>
+      <td><%= order.order_details.count %></td>
+      <td><%= order.order_status %></td>
     </tr>
   </tbody>
   <% end %>
 </table>
+<%= paginate @orders %>
