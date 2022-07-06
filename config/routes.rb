@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     registrations: 'public/registrations'
   }
   namespace :admin do
+    root to: 'homes#top'
     resources :genres, only:[:index, :create, :edit, :update]
     resources :items, only:[:index, :new, :show, :edit, :create, :update]
     resources :customers, only:[:index, :show, :edit, :update]
@@ -25,9 +26,6 @@ Rails.application.routes.draw do
     get 'items/new'
     get 'items/show'
     get 'items/edit'
-  end
-  namespace :admin do
-    get 'homes/top'
   end
   namespace :public do
     get 'addresses/index'
