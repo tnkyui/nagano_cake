@@ -12,21 +12,14 @@ Rails.application.routes.draw do
     resources :genres, only:[:index, :create, :edit, :update]
     resources :items, only:[:index, :new, :show, :edit, :create, :update]
     resources :customers, only:[:index, :show, :edit, :update]
+    resources :orders, only:[:show, :update]
+    resources :order_details, only:[:update]
   end
 
 
 
 
 
-  namespace :admin do
-    get 'orders/show'
-  end
-  namespace :admin do
-    get 'items/index'
-    get 'items/new'
-    get 'items/show'
-    get 'items/edit'
-  end
   namespace :public do
     get 'addresses/index'
     get 'addresses/edit'
