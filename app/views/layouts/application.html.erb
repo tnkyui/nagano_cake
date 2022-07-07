@@ -15,26 +15,25 @@
 
       <div class="container">
         <div class="row">
-          <div class="col">
-            <h3>ながのCAKE</h3>
+          <div class="col-4 align-self-center">
+            <h3 class="text-nowrap">ながのCAKE</h3>
           </div>
 
-          <div class="col">
+          <div class="col-2">
           <% if customer_signed_in? %>
             <p>ようこそ</p>
           <% end %>
           </div>
 
-          <nav class="navbar navbar-light bg-white">
-            <div class="col justify-content-end">
-
+          <div class="col-6 align-self-start">
+            <nav class="navbar navbar-light bg-white">
               <lu class="navbar-nav list-group-horizontal">
               <% if admin_signed_in? %>
-                <li><%= link_to "商品一覧", admin_items_path, class: "btn btn-outline-secondary text-dark" %></li>
-                <li><%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-secondary text-dark" %></li>
-                <li><%= link_to "注文履歴一覧", admin_root_path, class: "btn btn-outline-secondary text-dark" %></li>
-                <li><%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-outline-secondary text-dark" %></li>
-                <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-secondary text-dark" %></li>
+                <li><%= link_to "商品一覧", admin_items_path, class: "btn btn-outline-secondary text-dark btn-sm text-nowrap" %></li>
+                <li><%= link_to "会員一覧", admin_customers_path, class: "ml-3 btn btn-outline-secondary text-dark btn-sm text-nowrap" %></li>
+                <li><%= link_to "注文履歴一覧", admin_root_path, class: "ml-3 btn btn-outline-secondary text-dark btn-sm text-nowrap" %></li>
+                <li><%= link_to "ジャンル一覧", admin_genres_path, class: "ml-3 btn btn-outline-secondary text-dark btn-sm text-nowrap" %></li>
+                <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "ml-3 btn btn-outline-secondary text-dark btn-sm text-nowrap" %></li>
 
               <% elsif customer_signed_in? %>
                 <li>マイページ</li>
@@ -50,8 +49,13 @@
 
               <% end %>
               </lu>
+            </nav>
+            <div class="p-3 text-right">
+            <%= form_with do |f| %>
+              <%= f.text_field :serch %>
+            <% end %>
             </div>
-          </nav>
+          </div>
         </div>
       </div>
 
