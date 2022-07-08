@@ -10,55 +10,49 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <header>
+  <body class="d-flex flex-column vh-100">
+    <header class="shadow-sm">
+      <nav class="navbar navbar-light bg-white">
+        <div class="container">
+          <h3 class="navbar-brand text-nowrap">ながのCAKE</h3>
 
-      <div class="container">
-        <div class="row">
-          <div class="col-4 align-self-center">
-            <h3 class="text-nowrap font-weight-bold">ながのCAKE</h3>
-          </div>
-
-          <div class="col-2">
+          <div>
           <% if customer_signed_in? %>
             <p>ようこそ</p>
           <% end %>
           </div>
 
-          <div class="col-6 align-self-start">
-            <nav class="navbar navbar-light bg-white">
-              <lu class="navbar-nav list-group-horizontal">
-              <% if admin_signed_in? %>
-                <li><%= link_to "商品一覧", admin_items_path, class: "btn btn-outline-secondary text-dark btn-sm text-nowrap" %></li>
-                <li><%= link_to "会員一覧", admin_customers_path, class: "ml-3 btn btn-outline-secondary text-dark btn-sm text-nowrap" %></li>
-                <li><%= link_to "注文履歴一覧", admin_root_path, class: "ml-3 btn btn-outline-secondary text-dark btn-sm text-nowrap" %></li>
-                <li><%= link_to "ジャンル一覧", admin_genres_path, class: "ml-3 btn btn-outline-secondary text-dark btn-sm text-nowrap" %></li>
-                <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "ml-3 btn btn-outline-secondary text-dark btn-sm text-nowrap" %></li>
+          <div>
+            <ul class="nav">
+            <% if admin_signed_in? %>
+              <li class="nav-link"><%= link_to "商品一覧", admin_items_path, class: "btn btn-outline-light text-dark" %></li>
+              <li class="nav-link"><%= link_to "会員一覧", admin_customers_path, class: "btn btn-outline-light text-dark " %></li>
+              <li class="nav-link"><%= link_to "注文履歴一覧", admin_root_path, class: "btn btn-outline-light text-dark" %></li>
+              <li class="nav-link"><%= link_to "ジャンル一覧", admin_genres_path, class: "btn btn-outline-light text-dark" %></li>
+              <li class="nav-link"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-light text-dark" %></li>
 
-              <% elsif customer_signed_in? %>
-                <li>マイページ</li>
-                <li>商品一覧</li>
-                <li>カート</li>
-                <li>ログアウト</li>
+            <% elsif customer_signed_in? %>
+              <li class="nav-link">マイページ</li>
+              <li class="nav-link">商品一覧</li>
+              <li class="nav-link">カート</li>
+              <li class="nav-link">ログアウト</li>
 
-              <% else %>
-                <li>About</li>
-                <li>商品一覧</li>
-                <li>新規登録</li>
-                <li>ログイン</li>
+            <% else %>
+              <li class="nav-link">About</li>
+              <li class="nav-link">商品一覧</li>
+              <li class="nav-link">新規登録</li>
+              <li class="nav-link">ログイン</li>
+            <% end %>
+            </ul>
 
-              <% end %>
-              </lu>
-            </nav>
-            <div class="p-3 text-right">
+            <div class="text-right">
             <%= form_with do |f| %>
               <%= f.text_field :serch, placeholder: "Search"%>
             <% end %>
             </div>
           </div>
         </div>
-      </div>
-
+      </nav>
     </header>
     <main>
     <%= yield %>
