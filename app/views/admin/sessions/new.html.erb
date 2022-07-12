@@ -4,29 +4,34 @@
   </div>
 
   <%= form_with model: @admin, url: admin_session_path do |f| %>
-    <div class="row mb-3 justify-content-center">
-      <div class="col-2">
-        <%= f.label "メールアドレス" %>
-      </div>
-      <div class="col-5">
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="row mb-5 justify-content-center">
-      <div class="col-2">
-        <%= f.label "パスワード" %>
-      </div>
-      <div class="col-5">
-        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-2 mx-auto">
-        <%= f.submit "ログイン", class: "btn btn-primary btn-block"%>
-      </div>
-    </div>
+    <table class="table table-borderless">
+      <tbody>
+        <tr>
+          <td>
+            <%= f.label "メールアドレス" %>
+          </td>
+          <td>
+            <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com", class: "form-control" %>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <%= f.label "パスワード" %>
+          </td>
+          <td>
+            <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+          </td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <td></td>
+          <td class="pt-4">
+            <%= f.submit "ログイン", class: "btn btn-primary"%>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
   <% end %>
 
   <%= render "admin/shared/links" %>
