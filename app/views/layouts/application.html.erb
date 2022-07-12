@@ -35,13 +35,13 @@
               <li class="nav-link">マイページ</li>
               <li class="nav-link">商品一覧</li>
               <li class="nav-link">カート</li>
-              <li class="nav-link">ログアウト</li>
+              <li class="nav-link"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-light text-dark" %></li>
 
             <% else %>
-              <li class="nav-link">About</li>
+              <li class="nav-link"><%= link_to "About", about_path, class: "btn btn-outline-light text-dark" %></li>
               <li class="nav-link">商品一覧</li>
-              <li class="nav-link">新規登録</li>
-              <li class="nav-link">ログイン</li>
+              <li class="nav-link"><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-light text-dark" %></li>
+              <li class="nav-link"><%= link_to "ログイン", customer_session_path, class: "btn btn-outline-light text-dark" %></li>
             <% end %>
             </ul>
 

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
     sessions: 'admin/sessions'
   }
 
-  devise_for :customers, skip: [:registration], controllers: {
+  devise_for :customers, skip: [:passwords], controllers: {
     sessions: 'public/sessions',
     registrations: 'public/registrations'
   }
@@ -16,7 +16,8 @@ Rails.application.routes.draw do
     resources :order_details, only:[:update]
   end
 
-
+  root to: 'public/homes#top'
+  get 'about' => 'public/homes#about'
 
 
 
@@ -42,10 +43,6 @@ Rails.application.routes.draw do
   namespace :public do
     get 'items/index'
     get 'items/show'
-  end
-  namespace :public do
-    get 'homes/top'
-    get 'homes/about'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
