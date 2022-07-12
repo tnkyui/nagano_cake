@@ -1,17 +1,69 @@
-<h2>商品編集</h2>
+<div class="container">
+  <div class="row m-5">
+    <h5><span class="bg-light">商品編集</span></h5>
+  </div>
 
-<%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f|%>
-  <%= f.label "商品画像" %>
-  <%= f.file_field :image, accept: "image/*" %><br>
-  <%= f.label "商品名" %>
-  <%= f.text_field :name %><br>
-  <%= f.label "商品説明" %>
-  <%= f.text_area :introduction %><br>
-  <%= f.label "ジャンル" %>
-  <%= f.collection_select(:genre_id, @genres, :id, :name, prompt: "--選択してください--") %><br>
-  <%= f.label "税抜価格" %>
-  <%= f.text_field :price %>円<br>
-  <%= f.label "販売ステータス" %>
-  <%= f.radio_button :is_active, :true, checked: true %>販売中　<%= f.radio_button :is_active, :false %>販売停止中<br>
-  <%= f.submit "変更を保存" %>
-<% end %>
+  <%= form_with model: @item, url: admin_item_path(@item.id), method: :patch do |f|%>
+    <div class="row mb-2 justify-content-center">
+      <div class="col-2">
+        <%= f.label "商品画像" %>
+      </div>
+      <div class="col-5">
+        <%= f.file_field :image, accept: "image/*" %>
+      </div>
+      <div class="col-1"></div>
+    </div>
+    <div class="row mb-2 justify-content-center">
+      <div class="col-2">
+        <%= f.label "商品名" %>
+      </div>
+      <div class="col-5">
+        <%= f.text_field :name, placeholder: "商品名", class: "form-control" %>
+      </div>
+      <div class="col-1"></div>
+    </div>
+    <div class="row mb-2 justify-content-center">
+      <div class="col-2">
+        <%= f.label "商品説明" %>
+      </div>
+      <div class="col-5">
+        <%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class: "form-control" %>
+      </div>
+      <div class="col-1"></div>
+    </div>
+    <div class="row mb-2 justify-content-center">
+      <div class="col-2">
+        <%= f.label "ジャンル" %>
+      </div>
+      <div class="col-5 form-select">
+        <%= f.collection_select :genre_id, @genres, :id, :name, { prompt: "--選択してください--" }, class: "form-control" %>
+      </div>
+      <div class="col-1"></div>
+    </div>
+    <div class="row mb-2 justify-content-center">
+      <div class="col-2">
+        <%= f.label "税抜価格" %>
+      </div>
+      <div class="col-5">
+        <%= f.text_field :price, placeholder: "1000", class: "form-control" %>
+      </div>
+      <div class="col-1">
+        円
+      </div>
+    </div>
+    <div class="row mb-2 justify-content-center">
+      <div class="col-2">
+        <%= f.label "販売ステータス" %>
+      </div>
+      <div class="col-5">
+        <%= f.radio_button :is_active, :true, checked: true %>販売中　<%= f.radio_button :is_active, :false %>販売停止中
+      </div>
+      <div class="col-1"></div>
+    </div>
+    <div class="row mx-auto">
+      <div class="col-2 mx-auto">
+        <%= f.submit "変更を保存", class: "btn btn-success btn-block" %>
+      </div>
+    </div>
+  <% end %>
+</div>
