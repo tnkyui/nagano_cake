@@ -18,7 +18,7 @@
 
           <div>
           <% if customer_signed_in? %>
-            <p>ようこそ</p>
+            <p>ようこそ、<%= current_customer.last_name %>さん！</p>
           <% end %>
           </div>
 
