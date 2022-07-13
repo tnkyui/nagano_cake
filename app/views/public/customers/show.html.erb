@@ -23,27 +23,27 @@
         <tbody>
           <tr>
             <td class="bg-light">氏名</td>
-            <td><%= current_customer.last_name %> <%= current_customer.first_name %></td>
+            <td><%= @customer.last_name %> <%= @customer.first_name %></td>
           </tr>
           <tr>
             <td class="bg-light">カナ</td>
-            <td><%= current_customer.last_name_kana %> <%= current_customer.first_name_kana %></td>
+            <td><%= @customer.last_name_kana %> <%= @customer.first_name_kana %></td>
           </tr>
           <tr>
             <td class="bg-light">郵便番号</td>
-            <td><%= current_customer.postal_code %></td>
+            <td><%= @customer.postal_code %></td>
           </tr>
           <tr>
             <td class="bg-light">住所</td>
-            <td><%= current_customer.address %></td>
+            <td><%= @customer.address %></td>
           </tr>
           <tr>
             <td class="bg-light">電話番号</td>
-            <td><%= current_customer.telephone_number %></td>
+            <td><%= @customer.telephone_number %></td>
           </tr>
           <tr>
             <td class="bg-light">メールアドレス</td>
-            <td><%= current_customer.email %></td>
+            <td><%= @customer.email %></td>
           </tr>
         </tbody>
       </table>
