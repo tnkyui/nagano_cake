@@ -32,14 +32,14 @@
               <li class="nav-link"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, class: "btn btn-outline-light text-dark" %></li>
 
             <% elsif customer_signed_in? %>
-              <li class="nav-link">マイページ</li>
-              <li class="nav-link">商品一覧</li>
-              <li class="nav-link">カート</li>
+              <li class="nav-link"><%= link_to "マイページ", customers_my_page_path, class: "btn btn-outline-light text-dark" %></li>
+              <li class="nav-link"><%= link_to "商品一覧", items_path, class: "btn btn-outline-light text-dark" %></li>
+              <li class="nav-link"><%= link_to "カート", cart_items_path, class: "btn btn-outline-light text-dark" %></li>
               <li class="nav-link"><%= link_to "ログアウト", destroy_customer_session_path, method: :delete, class: "btn btn-outline-light text-dark" %></li>
 
             <% else %>
               <li class="nav-link"><%= link_to "About", about_path, class: "btn btn-outline-light text-dark" %></li>
-              <li class="nav-link">商品一覧</li>
+              <li class="nav-link"><%= link_to "商品一覧", items_path, class: "btn btn-outline-light text-dark" %></li>
               <li class="nav-link"><%= link_to "新規登録", new_customer_registration_path, class: "btn btn-outline-light text-dark" %></li>
               <li class="nav-link"><%= link_to "ログイン", customer_session_path, class: "btn btn-outline-light text-dark" %></li>
             <% end %>
