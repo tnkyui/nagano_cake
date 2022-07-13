@@ -16,33 +16,24 @@ Rails.application.routes.draw do
     resources :order_details, only:[:update]
   end
 
-  root to: 'public/homes#top'
-  get 'about' => 'public/homes#about'
+  scope module: :public do
+    root to: 'homes#top'
+    get 'about' => 'homes#about'
 
+    get 'customers/my_page' => 'customers#show'
+    patch 'customers/information' => 'customers#update'
+    get 'customers/information/edit' => 'customers#edit'
+    get 'customers/confirm' => 'customers#confirm'
+    patch 'customers/withdraw' => 'customers#withdraw'
 
+    resources :addresses, only:[:index, :edit, :create, :update, :destroy]
+    resources :items, only:[:index, :show]
+    resources :cart_items, only:[:index, :update, :destroy, :create]
+    delete 'cart_items/destroy_all' => 'cart_items#desytoy_all'
 
-  namespace :public do
-    get 'addresses/index'
-    get 'addresses/edit'
-  end
-  namespace :public do
-    get 'cart_items/index'
-  end
-  namespace :public do
-    get 'orders/new'
-    get 'orders/confirm'
-    get 'orders/complete'
-    get 'orders/index'
-    get 'orders/show'
-  end
-  namespace :public do
-    get 'customers/show'
-    get 'customers/edit'
-    get 'customers/confirm'
-  end
-  namespace :public do
-    get 'items/index'
-    get 'items/show'
+    resources :orders, only:[:new, :create, :index, :show]
+    post 'orders/confirm' => 'oreders#confirm'
+    get 'orders/complete' => 'oreders#complete'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
