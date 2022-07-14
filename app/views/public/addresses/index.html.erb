@@ -46,7 +46,7 @@
             <td><%= address.name %></td>
             <td>
               <%= link_to "編集する", edit_address_path(address.id), class: "btn btn-success btn-sm" %>
-              <%= link_to "削除する", class: "ml-2 btn btn-danger btn-sm" %>
+              <%= link_to "削除する", address_path(address.id), method: :delete, class: "ml-2 btn btn-danger btn-sm" %>
             </td>
 
           <% end %>
