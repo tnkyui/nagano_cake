@@ -13,9 +13,9 @@
 
       <div class="row">
         <% @items.each do |item| %>
-        <div class="item" style="width:25%">
+        <div class="m-1 item" style="width:23%">
           <%= link_to item_path(item.id) do %>
-            <div class="image"></div>
+            <div class="image bg-dark" style="height:100px"></div>
           <% end %>
           <p class="small">
             <strong><%= item.name %><br>
