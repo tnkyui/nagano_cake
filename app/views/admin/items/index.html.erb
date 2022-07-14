@@ -28,7 +28,7 @@
               <u><%= item.name %></u>
             <% end %>
           </td>
-          <td><%= item.price %></td>
+          <td><%= item.price.to_s(:delimited) %></td>
           <td><%= item.genre.name %></td>
           <th><%= item.is_active ? '販売中' : '販売停止中' %></th>
         </tr>
