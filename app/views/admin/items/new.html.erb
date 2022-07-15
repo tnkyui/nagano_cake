@@ -17,27 +17,27 @@
           <tr>
             <td class="small align-middle">商品名</td>
             <td>
-              <%= f.text_field :name, placeholder: "商品名", class: "form-control" %>
+              <%= f.text_field :name, placeholder: "商品名", style: "width:100%" %>
             </td>
           </tr>
           <tr>
-            <td class="small align-middle">商品説明</td>
+            <td class="small">商品説明</td>
             <td>
-              <%= f.text_area :introduction, placeholder: "ここに説明文を記述します", class: "form-control" %>
+              <%= f.text_area :introduction, placeholder: "ここに説明文を記述します", style: "width:100%" %>
             </td>
           </tr>
           <tr>
             <td class="small align-middle">ジャンル</td>
             <td>
-              <%= f.collection_select :genre_id, @genres, :id, :name, { prompt: "--選択してください--" }, class: "form-control" %>
+              <%= f.collection_select :genre_id, @genres, :id, :name, { prompt: "--選択してください--" }, style: "width:100%" %>
             </td>
           </tr>
           <tr>
             <td class="small align-middle">税抜価格</td>
-            <td class="p-0">
-              <%= f.text_field :price, placeholder: "1000", class: "form-control" %>
+            <td>
+              <%= f.text_field :price, placeholder: "1000", style: "width:100%" %>
             </td>
-            <td class="small align-middle">円</td>
+            <td class="small align-middle pl-0">円</td>
           </tr>
           <tr>
             <td class="small align-middle">販売ステータス</td>

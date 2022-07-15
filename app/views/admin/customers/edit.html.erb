@@ -9,38 +9,38 @@
       <table  class="table table-borderless">
         <tbody>
           <tr>
-            <td class="small">会員ID</td>
+            <td class="small align-middle">会員ID</td>
             <td><%= @customer.id %></td>
           </tr>
           <tr>
-            <td class="small">氏名</td>
-            <td><%= f.text_field :last_name, class: "form-control" %></td>
-            <td><%= f.text_field :first_name, class: "form-control" %></td>
+            <td class="small align-middle">氏名</td>
+            <td><%= f.text_field :last_name, style: "width:100%" %></td>
+            <td><%= f.text_field :first_name, style: "width:100%" %></td>
             <td width="100px"></td>
           </tr>
           <tr>
-            <td class="small">フリガナ</td>
-            <td><%= f.text_field :last_name_kana, class: "form-control" %></td>
-            <td><%= f.text_field :first_name_kana, class: "form-control" %></td>
+            <td class="small align-middle">フリガナ</td>
+            <td><%= f.text_field :last_name_kana, style: "width:100%" %></td>
+            <td><%= f.text_field :first_name_kana, style: "width:100%" %></td>
           </tr>
           <tr>
-            <td class="small">郵便番号</td>
-            <td><%= f.text_field :postal_code, class: "form-control" %></td>
+            <td class="small align-middle">郵便番号</td>
+            <td><%= f.text_field :postal_code, style: "width:100%" %></td>
           </tr>
           <tr>
-            <td class="small">住所</td>
-            <td colspan="3"><%= f.text_field :address, class: "form-control" %></td>
+            <td class="small align-middle">住所</td>
+            <td colspan="3"><%= f.text_field :address, style: "width:100%" %></td>
           </tr>
           <tr>
-            <td class="small">電話番号</td>
-            <td><%= f.text_field :telephone_number, class: "form-control" %></td>
+            <td class="small align-middle">電話番号</td>
+            <td><%= f.text_field :telephone_number, style: "width:100%" %></td>
           </tr>
           <tr>
-            <td class="small">メールアドレス</td>
-            <td><%= f.email_field :email, class: "form-control" %></td>
+            <td class="small align-middle">メールアドレス</td>
+            <td><%= f.email_field :email, style: "width:100%" %></td>
           </tr>
           <tr>
-            <td class="small">会員ステータス</td>
+            <td class="small align-middle">会員ステータス</td>
             <td><%= f.radio_button :is_active, :false %> 有効  <%= f.radio_button :is_active, :true %> 退会</td>
           </tr>
         </tbody>
