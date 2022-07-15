@@ -13,14 +13,16 @@
 
       <div class="row">
         <% @items.each do |item| %>
-        <div class="m-1 item" style="width:23%">
+        <div class="item m-1" style="width:23%">
           <%= link_to item_path(item.id) do %>
-            <div class="image bg-dark" style="height:100px"></div>
+            <div class="image bg-dark mb-3" style="height:100px"></div>
+            <p class="small text-dark">
+              <strong><%= item.name %></strong>
+            </p>
           <% end %>
-          <p class="small">
-            <strong><%= item.name %><br>
-            ￥<%= item.add_tax_price.to_s(:delimited) %></strong>
-          </p>
+            <p class="small">
+              <strong>￥<%= item.add_tax_price.to_s(:delimited) %></strong>
+            </p>
         </div>
         <% end %>
       </div>
