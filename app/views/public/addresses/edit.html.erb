@@ -2,22 +2,23 @@
   <div class="row m-5">
     <h5><span class="bg-light">配送先編集</span></h5>
   </div>
+  
   <div class="row">
     <div class="col-10">
       <%= form_with model: @address, url: address_path, method: :patch do |f| %>
       <table class="table table-borderless">
         <tbody>
           <tr>
-            <td>郵便番号(ハイフンなし)</td>
-            <td><%= f.text_field :postal_code, style: "width:100%" %></td>
+            <td class="align-middle">郵便番号(ハイフンなし)</td>
+            <td><%= f.text_field :postal_code, placeholder: "0000000", style: "width:100%" %></td>
           </tr>
           <tr>
-            <td>住所</td>
-            <td colspan="2"><%= f.text_field :address, style: "width:100%" %></td>
+            <td class="align-middle">住所</td>
+            <td colspan="2"><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", style: "width:100%" %></td>
           </tr>
           <tr>
             <td>宛名</td>
-            <td><%= f.text_field :name, style: "width:100%" %></td>
+            <td><%= f.text_field :name, placeholder: "令和道子", style: "width:100%" %></td>
             <td style="width: 30%"></td>
             <td><%= f.submit "変更内容を保存", class: "btn btn-success" %></td>
           </tr>
