@@ -9,15 +9,15 @@
         <tbody>
           <tr>
             <td>郵便番号(ハイフンなし)</td>
-            <td><%= f.text_field :postal_code, class: "form-control" %></td>
+            <td><%= f.text_field :postal_code, style: "width:100%" %></td>
           </tr>
           <tr>
             <td>住所</td>
-            <td colspan="2"><%= f.text_field :address, class: "form-control" %></td>
+            <td colspan="2"><%= f.text_field :address, style: "width:100%" %></td>
           </tr>
           <tr>
             <td>宛名</td>
-            <td><%= f.text_field :name, class: "form-control" %></td>
+            <td><%= f.text_field :name, style: "width:100%" %></td>
             <td style="width: 30%"></td>
             <td><%= f.submit "変更内容を保存", class: "btn btn-success" %></td>
           </tr>
