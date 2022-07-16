@@ -24,14 +24,16 @@
             <%= cart_item.item.name %>
           </td>
           <td><%= cart_item.item.add_tax_price %></td>
-          <td class="align-middle">
+          <td class="text-center">
             <%= form_with model: cart_item, url: cart_item_path(cart_item.id), method: :patch do |f| %>
               <%= f.select :amount, *[1..10] %>
               <%= f.submit "変更", class: "btn btn-success btn-sm align-baseline" %>
             <% end %>
           </td>
           <td><%= cart_item.subtotal %></td>
-          <td><%= link_to "削除する", class: "btn btn-danger btn-sm" %></td>
+          <td class="text-center">
+            <%= link_to "削除する", cart_item_path(cart_item.id), method: :delete, class: "btn btn-danger btn-sm" %>
+          </td>
         </tr>
         <% end %>
       </tbody>
@@ -41,7 +43,7 @@
     <div class="col my-auto">
       <%= link_to "買い物を続ける", root_path, class: "btn btn-primary btn-sm" %>
     </div>
-    <div class="col text-right p-0">
+    <div class="col d-right p-0">
       <table class="table table-bordered my-auto">
         <tbody>
           <tr>
