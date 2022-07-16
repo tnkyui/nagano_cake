@@ -4,6 +4,20 @@ class Public::CartItemsController < ApplicationController
     @cart_items = @customer.cart_items.all
   end
 
+  def update
+    cart_item = CartItem.find(params[:id])
+    cart_item.update(cart_item_params)
+    redirect_to cart_items_path
+  end
+
+  def destroy
+
+  end
+
+  def destroy_all
+
+  end
+
   def create
     cart_item = CartItem.new(cart_item_params)
     cart_item.customer_id = current_customer.id

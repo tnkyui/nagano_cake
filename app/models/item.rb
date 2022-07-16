@@ -5,7 +5,11 @@ class Item < ApplicationRecord
   has_many :orders_details, dependent: :destroy
   belongs_to :genre
 
+  def add_tax_intenger
+    (price * 1.1).floor
+  end
+
   def add_tax_price
-    (self.price * 1.1).round.to_s(:delimited)
+    add_tax_intenger.to_s(:delimited)
   end
 end
