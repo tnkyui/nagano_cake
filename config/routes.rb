@@ -24,18 +24,21 @@ Rails.application.routes.draw do
     get 'customers/information/edit' => 'customers#edit'
     get 'customers/confirm' => 'customers#confirm'
     patch 'customers/withdraw' => 'customers#withdraw'
-    
+
     resources :addresses, only:[:index, :edit, :create, :update, :destroy]
     resources :items, only:[:index, :show]
-    
+
     resources :cart_items, only:[:index, :update, :destroy, :create] do
       collection do
         delete 'destroy_all'
       end
     end
-    resources :orders, only:[:new, :create, :index, :show]
-    post 'orders/confirm' => 'oreders#confirm'
-    get 'orders/complete' => 'oreders#complete'
+    resources :orders, only:[:new, :create, :index, :show] do
+      collection do
+        post 'confirm'
+        get 'complete'
+      end
+    end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
