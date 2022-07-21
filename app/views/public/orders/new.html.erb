@@ -4,7 +4,7 @@
   </div>
 
   <div class="row">
-  <%= form_with model: @order do |f| %>
+  <%= form_with model: @order, url: confirm_orders_path do |f| %>
     <ul class="list-unstyled">
       <li class="payment_method mb-2">
         <h6><strong>支払方法</strong></h6>
