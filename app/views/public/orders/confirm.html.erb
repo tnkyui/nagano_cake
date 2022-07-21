@@ -4,14 +4,14 @@
   </div>
 
   <div class="row">
-    <div class="col offset-1">
+    <div class="col-7 offset-1 mb-2">
       <table class="table table-bordered">
         <tbody>
           <tr class="bg-light">
-            <td>商品名</td>
-            <td>単価(税込)</td>
-            <td>数量</td>
-            <td>小計</td>
+            <td class="text-nowrap">商品名</td>
+            <td class="text-nowrap">単価(税込)</td>
+            <td class="text-nowrap">数量</td>
+            <td class="text-nowrap">小計</td>
           </tr>
           <% @cart_items.each do |cart_item| %>
           <% @total += cart_item.subtotal_intenger %>
@@ -27,7 +27,7 @@
         </tbody>
       </table>
     </div>
-    <div class="col">
+    <div class="col-4">
       <table class="table table-bordered">
         <tbody>
           <tr>
@@ -47,12 +47,12 @@
     </div>
   </div>
   <dl class="row">
-    <dt class="col">支払方法</dt>
-    <dd class="col"><%= @order.payment_method_i18n %></dd>
+    <dt class="col-2">支払方法</dt>
+    <dd class="col-10"><%= @order.payment_method_i18n %></dd>
   </dl>
   <dl class="row">
-    <dt class="col">お届け先</dt>
-    <dd class="col">
+    <dt class="col-2">お届け先</dt>
+    <dd class="col-10">
         〒<%= @order.postal_code %>　<%= @order.address %><br>
         <%= @order.name %>
     </dd>
