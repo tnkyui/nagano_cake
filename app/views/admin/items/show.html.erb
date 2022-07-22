@@ -9,24 +9,30 @@
       <table class="table table-borderless">
         <tbody>
           <tr>
-            <td class="small">商品名</td>
+            <td class="small align-middle">商品名</td>
             <td><%= @item.name %></td>
           </tr>
           <tr>
-            <td class="small">商品説明</td>
+            <td class="small align-middle">商品説明</td>
             <td><%= @item.introduction %></td>
           </tr>
           <tr>
-            <td class="small">ジャンル</td>
+            <td class="small align-middle">ジャンル</td>
             <td><%= @item.genre.name %></td>
           </tr>
           <tr>
-            <td class="small">税込価格<br>(税抜価格)</td>
+            <td class="small align-middle">税込価格<br>(税抜価格)</td>
             <td><%= @item.add_tax_price %> (<%= @item.price.to_s(:delimited) %>) 円</td>
           </tr>
           <tr>
-            <td class="small">販売ステータス</td>
-            <td><%= @item.is_active ? "販売中" : "販売停止中" %></td>
+            <td class="small align-middle">販売ステータス</td>
+            <th>
+              <% if @item.is_active == true %>
+                <span class="text-success">販売中</span>
+              <% elsif @item.is_active == false %>
+                <span class="text-secondary">販売停止中</span>
+              <% end %>
+            </th>
           </tr>
         </tbody>
       </table>
