@@ -28,7 +28,7 @@
     <tr>
       <td>注文ステータス</td>
         <%= form_with model: @order, url: admin_order_path(@order.id), method: :patch do |f| %>
-      <td><%= f.select :order_status, Order.order_status.keys, {} %>
+      <td><%= f.select :order_status, Order.order_statuses.keys, {} %>
         <%= f.submit "更新", class: "btn btn-success btn-sm" %></td>
         <% end %>
     </tr>
@@ -52,7 +52,7 @@
           <td><%= order_detail.amount %></td>
           <td></td>
           <%= form_with model: @order_detail, url: admin_order_detail_path(@order_detail.id), method: :patch do |f| %>
-          <td><%= f.select :making_status, OrderDetail.making_status.keys, {} %></td>
+          <td><%= f.select :making_status, OrderDetail.making_statuses.keys, {} %></td>
           <td><%= f.submit "更新" %></td>
           <% end %>
         </tr>

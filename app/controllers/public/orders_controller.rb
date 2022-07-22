@@ -8,6 +8,7 @@ class Public::OrdersController < ApplicationController
     @customer = current_customer
     @cart_items = @customer.cart_items.all
     @total = 0
+    @postage = 800
     @order = Order.new(order_params)
     if params[:order][:select_address] == "0"
       @order.postal_code = current_customer.postal_code
@@ -19,12 +20,28 @@ class Public::OrdersController < ApplicationController
       @order.address = @address.address
       @order.name = @address.name
     end
+    @order_new = Order.new
   end
 
   def complete
   end
 
   def create
+    order = Order.new(order_params)
+    order.customer_id = current_customer.id
+    order.save
+    order_details = OrderDetail.new
+
+    cart_items = current_customer.cart_items.all
+    cart_items.each do |cart_item|
+      order_details.order_id = order.id
+      order_details.item_id = cart_item.item.id
+      order_details.amount = cart_item.amount
+      order_details.price = cart_item.item.add_tax_intenger
+      order_details.save
+    end
+    cart_items.destroy_all
+    redirect_to complete_orders_path
 
   end
 
@@ -36,6 +53,6 @@ class Public::OrdersController < ApplicationController
 
   private
   def order_params
-    params.require(:order).permit(:payment_method, :postal_code, :address, :name)
+    params.require(:order).permit(:payment_method, :postal_code, :address, :name, :postage, :price)
   end
 end
