@@ -30,10 +30,10 @@ class Public::OrdersController < ApplicationController
     order = Order.new(order_params)
     order.customer_id = current_customer.id
     order.save
-    order_details = OrderDetail.new
 
-    cart_items = current_customer.cart_items.all
-    cart_items.each do |cart_item|
+    @cart_items = current_customer.cart_items.all
+    @cart_items.each do |cart_item|
+      order_details = OrderDetail.new
       order_details.order_id = order.id
       order_details.item_id = cart_item.item.id
       order_details.amount = cart_item.amount
@@ -47,10 +47,12 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = current_customer.orders.all
+    @order_details = OrderDetail.all
   end
 
   def show
     @order = Order.find(params[:id])
+    @order_details = OrderDetail.where(order_id: params[:id])
   end
 
   private
