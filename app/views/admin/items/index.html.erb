@@ -30,7 +30,13 @@
           </td>
           <td><%= item.price %></td>
           <td><%= item.genre.name %></td>
-          <th><%= item.is_active ? '販売中' : '販売停止中' %></th>
+          <th>
+            <% if item.is_active == true %>
+              <span class="text-success">販売中</span>
+            <% elsif item.is_active == false %>
+              <span class="text-secondary">販売停止中</span>
+            <% end %>
+          </th>
         </tr>
         <% end %>
       </tbody>
