@@ -25,9 +25,13 @@
           <td>
             <%= customer.email %>
           </td>
-          <td>
-            <%= customer.is_active ? "退会" : "有効" %>
-          </td>
+          <th>
+            <% if customer.is_active == false %>
+              <span class="text-success">有効</span>
+            <% elsif customer.is_active == true %>
+              <span class="text-secondary">退会</span>
+            <% end %>
+          </th>
         </tr>
         <% end %>
       </tbody>
