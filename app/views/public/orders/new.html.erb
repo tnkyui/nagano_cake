@@ -3,9 +3,9 @@
     <h5><span class="bg-light">注文情報入力</span></h5>
   </div>
 
-  <div class="row">
   <%= form_with model: @order, url: confirm_orders_path do |f| %>
-    <ul class="list-unstyled">
+  <div class="row">
+    <ul class="list-unstyled w-100">
       <li class="payment_method mb-2">
         <h6><strong>支払方法</strong></h6>
         <ul class="list-unstyled ml-4">
@@ -63,11 +63,9 @@
         </ul>
       </li>
     </ul>
-  </div>
-  <div class="row">
     <div class="mx-auto">
       <%= f.submit "確認画面へ進む", class: "btn btn-primary" %>
     </div>
+    <% end %>
   </div>
-  <% end %>
 </div>
