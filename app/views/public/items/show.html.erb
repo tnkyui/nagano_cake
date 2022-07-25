@@ -25,17 +25,17 @@
           <span class="small">(税込)</span>
         </p>
       </div>
+      <%= form_with model: @cart_item do |f| %>
       <div class="row">
         <div class="col my-auto">
-        <%= form_with model: @cart_item do |f| %>
           <%= f.hidden_field :item_id, :value => @item.id %>
           <%= f.select :amount, *[1..10], prompt: "個数選択" %>
         </div>
         <div class="col">
           <%= f.submit "カートに入れる", class: "btn btn-success btn-sm" %>
-        <% end %>
         </div>
       </div>
+      <% end %>
     </div>
   </div>
 </div>
