@@ -7,7 +7,7 @@
   <table class="table table-borderless" style="width:100%">
     <tr>
       <th style="width:10em">購入者</th>
-      <td>
+      <td style="width:10em">
         <%= link_to admin_customer_path(@order.customer.id), class: "text-dark" do %>
           <u><%= @order.customer.full_name %></u>
         <% end %>
@@ -16,7 +16,7 @@
     </tr>
     <tr>
       <th>注文日</th>
-      <td style="width:10em"><%= @order.created_at.strftime('%Y/%m/%d') %></td>
+      <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
     </tr>
     <tr>
       <th>配送先</th>
@@ -37,15 +37,15 @@
 
   <div class="row">
     <div class="col-7">
-      <%= form_with model: @order_details, url: admin_order_detail_path(@order_details.ids), method: :patch do |f| %>
+
       <table class="table">
         <thead class="bg-light text-nowrap">
           <th>商品名</th>
           <th>単価(税込)</th>
           <th>数量</th>
           <th>小計</th>
-          <th>製作ステータス</th>
-          <th></th>
+          <th style="width:10em">製作ステータス</th>
+          <th style="width:3em"></th>
         </thead>
         <tbody class="table-borderless">
           <% @order_details.each do |order_detail| %>
@@ -54,13 +54,17 @@
             <td><%= order_detail.price.to_s(:delimited) %></td>
             <td><%= order_detail.amount %></td>
             <td><%= (order_detail.price * order_detail.amount).to_s(:delimited) %></td>
-            <td><%= f.select :making_status, OrderDetail.making_statuses.keys.map {|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]}, {}, {class: 'form-control form-control-sm text-center'} %></td>
-            <td><%= f.submit "更新", class: "btn btn-success btn-sm" %></td>
+            <td colspan="2" class="text-nowrap d-inline-block">
+              <%= form_with model: order_detail, url: admin_order_detail_path(order_detail.id), method: :patch do |f| %>
+                <%= f.select :making_status, OrderDetail.making_statuses.keys.map {|k| [I18n.t("enums.order_detail.making_status.#{k}"), k]}, {}, {class: 'form-control form-control-sm text-center d-inline-block'} %>
+                <%= f.submit "更新", class: "btn btn-success btn-sm mx-2" %>
+              <% end %>
+            </td>
           </tr>
           <% end %>
         </tbody>
       </table>
-      <% end %>
+
     </div>
     <div class="col-4 align-self-end offset-1">
       <table class="table table-borderless">
