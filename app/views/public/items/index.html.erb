@@ -16,10 +16,11 @@
         <div class="item m-1" style="width:23%">
           <%= link_to item_path(item.id) do %>
             <div class="image bg-dark mb-3" style="height:100px"></div>
+          <% end %>
             <p class="small text-dark">
               <strong><%= item.name %></strong>
             </p>
-          <% end %>
+
             <p class="small">
               <strong>￥<%= item.add_tax_price %></strong>
             </p>
