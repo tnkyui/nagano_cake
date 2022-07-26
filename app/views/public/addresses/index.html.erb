@@ -5,6 +5,13 @@
 
   <div class="row">
     <div class="col-10">
+      <% if @address.errors.any? %>
+        <ul class="text-danger">
+          <% @address.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+          <% end %>
+        </ul>
+      <% end %>
       <%= form_with model: @address do |f| %>
       <table class="table table-borderless">
         <tbody>

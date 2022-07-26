@@ -16,3 +16,14 @@ ja:
         waiting: "製作待ち"
         making: "製作中"
         complete: "製作完了"
+  activerecord:
+    attributes:
+      address:
+        name: "宛名"
+        postal_code: "郵便番号"
+        address: "住所"
+    errors:
+      messages:
+        blank: "を入力してください"
+        wrong_length: "は%{count}文字で入力してください"
+        not_a_number: "は数値で入力してください"
