@@ -22,8 +22,11 @@ ja:
         name: "宛名"
         postal_code: "郵便番号"
         address: "住所"
+      cart_item:
+        amount: "個数"
     errors:
       messages:
         blank: "を入力してください"
         wrong_length: "は%{count}文字で入力してください"
         not_a_number: "は数値で入力してください"
+        inclusion: "を選択してください"
