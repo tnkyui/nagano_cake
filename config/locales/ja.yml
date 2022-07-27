@@ -35,6 +35,8 @@ ja:
         postal_code: "郵便番号"
         address: "住所"
         telephone_number: "電話番号"
+      genre:
+        name: "ジャンル名"
     errors:
       messages:
         blank: "を入力してください"

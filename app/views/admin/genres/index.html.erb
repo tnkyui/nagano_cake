@@ -3,6 +3,13 @@
     <h5><span class="bg-light">ジャンル一覧・追加</span></h5>
   </div>
 
+  <% if @genre.errors.any? %>
+    <ul class="text-danger">
+      <% @genre.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <%= form_with model: @genre, url: admin_genres_path do |f| %>
   <div class="row">
     <div class="col-2 small align-middle">ジャンル名</div>
