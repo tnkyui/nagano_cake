@@ -44,6 +44,14 @@ ja:
         price: "税抜き価格"
         is_active: "販売ステータス"
         genre: "ジャンル"
+      order:
+        postal_code: "郵便番号"
+        address: "住所"
+        name: "宛名"
+        postage: "送料"
+        price: "請求額"
+        payment_method: "支払い方法"
+        order_status: "注文ステータス"
     errors:
       messages:
         blank: "を入力してください"

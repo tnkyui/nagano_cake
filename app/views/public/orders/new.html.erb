@@ -3,6 +3,13 @@
     <h5><span class="bg-light">注文情報入力</span></h5>
   </div>
 
+  <% if @order.errors.any? %>
+    <ul class="text-danger">
+      <% @order.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
   <%= form_with model: @order, url: confirm_orders_path do |f| %>
   <div class="row">
     <ul class="list-unstyled w-100">
@@ -24,7 +31,7 @@
         <h6><strong>お届け先</strong></h6>
         <ul class="list-unstyled ml-4">
           <li class="mb-3">
-            <%= f.radio_button :select_address, "0" %> ご自身の住所
+            <%= f.radio_button :select_address, "0", required: true %> ご自身の住所
             <ul class="list-unstyled ml-4">
               <li>
                 <%= @customer.address_display %><br>
@@ -33,7 +40,7 @@
             </ul>
           </li>
           <li class="mb-3">
-            <%= f.radio_button :select_address, "1" %> 登録済住所から選択
+            <%= f.radio_button :select_address, "1", required: true %> 登録済住所から選択
             <ul class="list-unstyled ml-4 my-1">
               <li>
                 <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
@@ -41,20 +48,20 @@
             </ul>
           </li>
           <li>
-            <%= f.radio_button :select_address, "2" %> 新しいお届け先
+            <%= f.radio_button :select_address, "2", required: true %> 新しいお届け先
             <table class="table table-borderless table-sm ml-4">
               <tbody class="small">
                 <tr>
                   <td class="align-middle">郵便番号(ハイフンなし)</td>
-                  <td><%= f.text_field :postal_code, placeholder: "0000000", style: "width:100%" %></td>
+                  <td><%= f.text_field :postal_code, placeholder: "0000000", style: "width:100%", required: true %></td>
                 </tr>
                 <tr>
                   <td class="align-middle">住所</td>
-                  <td colspan="2"><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", style: "width:100%" %></td>
+                  <td colspan="2"><%= f.text_field :address, placeholder: "東京都渋谷区代々木神園町0-0", style: "width:100%", required: true %></td>
                 </tr>
                 <tr>
                   <td>宛名</td>
-                  <td><%= f.text_field :name, placeholder: "令和道子", style: "width:100%" %></td>
+                  <td><%= f.text_field :name, placeholder: "令和道子", style: "width:100%", required: true %></td>
                   <td style="width: 30%"></td>
                 </tr>
               </tbody>
