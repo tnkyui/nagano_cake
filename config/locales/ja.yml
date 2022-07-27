@@ -24,9 +24,25 @@ ja:
         address: "住所"
       cart_item:
         amount: "個数"
+      customer:
+        email: "メールアドレス"
+        password: "パスワード"
+        password_confirmation: "確認用パスワード"
+        last_name: "姓"
+        first_name: "名"
+        last_name_kana: "セイ"
+        first_name_kana: "カナ"
+        postal_code: "郵便番号"
+        address: "住所"
+        telephone_number: "電話番号"
     errors:
       messages:
         blank: "を入力してください"
         wrong_length: "は%{count}文字で入力してください"
         not_a_number: "は数値で入力してください"
         inclusion: "を選択してください"
+        too_short: "は%{count}文字以上で入力してください"
+        too_long: "は%{count}文字以下で入力してください"
+        taken: "はすでに存在します"
+        invalid: "は有効ではありません"
+        confirmation: "が内容とあっていません"
