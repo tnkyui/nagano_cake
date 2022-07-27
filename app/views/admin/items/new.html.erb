@@ -5,6 +5,13 @@
 
   <div class="row">
     <div class="col-8 mx-auto">
+    <% if @item.errors.any? %>
+      <ul class="text-danger">
+        <% @item.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
     <%= form_with model: @item, url: admin_items_path do |f| %>
       <table class="table table-borderless">
         <tbody>

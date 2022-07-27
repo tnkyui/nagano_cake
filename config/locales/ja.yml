@@ -36,7 +36,14 @@ ja:
         address: "住所"
         telephone_number: "電話番号"
       genre:
+        genre: "ジャンル"
         name: "ジャンル名"
+      item:
+        name: "商品名"
+        introduction: "商品説明文"
+        price: "税抜き価格"
+        is_active: "販売ステータス"
+        genre: "ジャンル"
     errors:
       messages:
         blank: "を入力してください"
@@ -48,3 +55,4 @@ ja:
         taken: "はすでに存在します"
         invalid: "は有効ではありません"
         confirmation: "が内容とあっていません"
+        required: "を選択してください"
