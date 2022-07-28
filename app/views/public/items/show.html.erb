@@ -40,7 +40,11 @@
           <%= f.select :amount, *[1..10], prompt: "個数選択" %>
         </div>
         <div class="col">
-          <%= f.submit "カートに入れる", class: "btn btn-success btn-sm" %>
+          <% if @item.is_active == true %>
+            <%= f.submit "カートに入れる", class: "btn btn-success btn-sm" %>
+          <% else %>
+            <%= f.submit "売り切れ", class: "btn btn-secondary btn-sm", disabled: "true" %>
+          <% end %>
         </div>
       </div>
       <% end %>
