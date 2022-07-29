@@ -43,7 +43,7 @@
             <%= f.radio_button :select_address, "1", required: true %> 登録済住所から選択
             <ul class="list-unstyled ml-4 my-1">
               <li>
-                <%= f.select :address_id, options_from_collection_for_select(Address.all, :id, :address_display) %>
+                <%= f.select :address_id, options_from_collection_for_select(@customer.addresses.all, :id, :address_display) %>
               </li>
             </ul>
           </li>
