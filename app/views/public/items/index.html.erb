@@ -11,10 +11,10 @@
 
       <div class="row">
         <% @items.each do |item| %>
-        <div class="item m-1" style="width:200px">
-          <div class="image text-center" style="height:150px">
+        <div class="item m-1">
+          <div class="image text-center">
             <%= link_to item_path(item.id) do %>
-              <%= image_tag item.get_image(200, 200), class: "border border-secondary h-100 w-100 object-fit-cover" %>
+              <%= image_tag item.get_image(200, 200), class: "border border-secondary", style: "object-fit:cover", size: "200x150" %>
             <% end %>
           </div>
           <p class="small text-dark">

@@ -1,2 +1,49 @@
-<h1>Public::Homes#top</h1>
-<p>Find me in app/views/public/homes/top.html.erb</p>
+<div class="container">
+  <div class="row mt-5">
+    <div class="col-3">
+    </div>
+
+    <div class="col-9">
+
+      <div class="row" style="position:relative">
+        <%= image_tag "cakeshow.jpeg" %>
+        <div class="bg-light border border-dark" style="position:absolute; top:25%; left:100px">
+          <p class="my-4">
+            ようこそ。ながのCAKEへ！<br>
+            このサイトは、ケーキ販売のECサイトになります。<br>
+            会員でない方も商品の閲覧はできますが、<br>
+            購入には会員登録が必要になります。<br>
+          </p>
+        </div>
+      </div>
+
+      <div class="row mt-3">
+        <p><span class="h4"><strong>新着商品</strong></span></p>
+      </div>
+
+      <div class="row">
+        <% @items.each do |item| %>
+        <div class="item m-1">
+          <div class="image text-center">
+            <%= link_to item_path(item.id) do %>
+              <%= image_tag item.get_image(200, 200), class: "border border-secondary", style: "object-fit:cover", size: "200x150" %>
+            <% end %>
+          </div>
+          <p class="small text-dark">
+            <strong><%= item.name %></strong>
+          </p>
+          <p class="small">
+            <strong>￥<%= item.add_tax_price %></strong>
+          </p>
+        </div>
+        <% end %>
+      </div>
+      <div class="row">
+        <div class="col text-right">
+          <%= link_to "全ての商品を見る >", items_path %>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
