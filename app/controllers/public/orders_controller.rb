@@ -50,7 +50,7 @@ class Public::OrdersController < ApplicationController
 
   def index
     @orders = current_customer.orders.all
-    @order_details = OrderDetail.all
+    # @order_details = @order.order_details
   end
 
   def show
