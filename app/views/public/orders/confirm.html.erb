@@ -4,8 +4,8 @@
   </div>
 
   <div class="row">
-    <div class="col-7 mb-2">
-      
+    <div class="col-8 mb-2">
+
       <table class="table table-bordered">
         <tbody>
           <tr class="bg-light">
@@ -17,7 +17,8 @@
           <% @cart_items.each do |cart_item| %>
           <% @total += cart_item.subtotal_intenger %>
           <tr>
-            <td>
+            <td class="text-nowrap">
+              <%= image_tag cart_item.item.get_image(40,40), class: "border border-secondary", style: "object-fit:cover; margin-right:5px", size: "40x30" %>
               <strong><%= cart_item.item.name %></strong>
             </td>
             <td><%= cart_item.item.add_tax_price %></td>
@@ -28,7 +29,7 @@
         </tbody>
       </table>
     </div>
-    <div class="col-4">
+    <div class="col-3">
       <table class="table table-bordered">
         <tbody>
           <tr>
