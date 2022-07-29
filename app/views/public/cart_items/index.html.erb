@@ -19,7 +19,7 @@
     <table class="table table-bordered">
       <tbody>
         <tr class="bg-light">
-          <td colspan="2" style="width:40%">商品名</td>
+          <td style="width:40%">商品名</td>
           <td style="width:15%">単価(税込)</td>
           <td style="width:15%">数量</td>
           <td style="width:15%">小計</td>
@@ -29,9 +29,7 @@
           <% @total += cart_item.subtotal_intenger %>
         <tr>
           <td class="align-middle">
-            <%= image_tag cart_item.item.get_image(70,70), class: "border border-secondary", style: "object-fit:cover", size: "70x45" %>
-          </td>
-          <td class="align-middle">
+            <%= image_tag cart_item.item.get_image(70,70), class: "border border-secondary", style: "object-fit:cover; margin-right:10px", size: "70x45" %>
             <%= cart_item.item.name %>
           </td>
           <td class="align-middle">
