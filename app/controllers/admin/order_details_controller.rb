@@ -2,12 +2,13 @@ class Admin::OrderDetailsController < Admin::ApplicationController
 
   def update
     order_detail = OrderDetail.find(params[:id])
-    order_details = OrderDetail.where(order_id: params[:order_detail][:order_id]).pluck(:making_status)
+    order = order_detail.order
+    order_details = order.order_details
     order_detail.update(order_detail_params)
     if order_detail.making_status == "making"
-      order_detail.order.update(order_status: 2)
-    elsif order_details.all?{ |s| s == "complete" }
-      order_detail.order.update(order_status: 3)
+      order.update(order_status: 2)
+    elsif order_details.count == order_details.where(making_status: "complete").count
+      order.update(order_status: 3)
     end
     redirect_to admin_order_path(id: order_detail.order)
   end

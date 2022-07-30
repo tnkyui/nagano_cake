@@ -33,7 +33,7 @@ class Public::OrdersController < ApplicationController
       @cart_items = current_customer.cart_items.all
       @cart_items.each do |cart_item|
         order_details = OrderDetail.new
-        order_details.order_id = order.id
+        order_details.order_id = @order.id
         order_details.item_id = cart_item.item.id
         order_details.amount = cart_item.amount
         order_details.price = cart_item.item.add_tax_intenger
